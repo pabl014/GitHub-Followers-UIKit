@@ -26,25 +26,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func createSearchNC() -> UINavigationController {
-        let searchVC = SearchVC()
-        searchVC.title = "Search"
-        searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        let searchVC        = SearchVC()
+        searchVC.title      = "Search"
+        searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0) // tag is used to identify the object
         
         return UINavigationController(rootViewController: searchVC)
     }
     
     func createFavoritesNC() -> UINavigationController {
-        let favoritesListVC = FavoritesListVC()
-        favoritesListVC.title = "Favorites"
+        let favoritesListVC        = FavoritesListVC()
+        favoritesListVC.title      = "Favorites"
         favoritesListVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         
         return UINavigationController(rootViewController: favoritesListVC)
     }
     
     func createTabBar() -> UITabBarController {
-        let tabbar = UITabBarController() // it is holding navigation controllers, which are holding viewControllers
-        UITabBar.appearance().tintColor = .systemGreen
-        tabbar.viewControllers = [createSearchNC(), createFavoritesNC()]
+        let tabbar                      = UITabBarController() // it is holding navigation controllers, which are holding viewControllers
+        UITabBar.appearance().tintColor = .systemGreen // UITabBar.appearance(), because we want to affect ALL of our UITabBars. appearance() -> global configuration for that element
+        tabbar.viewControllers          = [createSearchNC(), createFavoritesNC()]
         
         return tabbar
     }
