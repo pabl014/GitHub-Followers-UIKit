@@ -70,22 +70,54 @@
 		FEE85B082B7BC28900780317 /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				FEE85B342B7E82A200780317 /* Support */,
+				FEE85B312B7E7FC300780317 /* Screens */,
+				FEE85B322B7E81FA00780317 /* Custom Views */,
+				FEE85B332B7E823A00780317 /* Extensions */,
+			);
+			path = GitHubFollowers;
+			sourceTree = "<group>";
+		};
+		FEE85B312B7E7FC300780317 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FEE85B1F2B7D362000780317 /* SearchVC.swift */,
+				FEE85B212B7D369E00780317 /* FavoritesListVC.swift */,
+				FEE85B272B7D7C9900780317 /* FollowerListVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		FEE85B322B7E81FA00780317 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				FEE85B2D2B7E59E700780317 /* GFAlertVC.swift */,
+				FEE85B232B7D47A800780317 /* GFButton.swift */,
+				FEE85B252B7D5D3C00780317 /* GFTextField.swift */,
+				FEE85B292B7E51D400780317 /* GFTitleLabel.swift */,
+				FEE85B2B2B7E538200780317 /* GFBodyLabel.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		FEE85B332B7E823A00780317 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FEE85B2F2B7E70E800780317 /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FEE85B342B7E82A200780317 /* Support */ = {
+			isa = PBXGroup;
+			children = (
 				FEE85B092B7BC28900780317 /* AppDelegate.swift */,
 				FEE85B0B2B7BC28900780317 /* SceneDelegate.swift */,
-				FEE85B1F2B7D362000780317 /* SearchVC.swift */,
 				FEE85B122B7BC28B00780317 /* Assets.xcassets */,
 				FEE85B142B7BC28B00780317 /* LaunchScreen.storyboard */,
 				FEE85B172B7BC28B00780317 /* Info.plist */,
-				FEE85B212B7D369E00780317 /* FavoritesListVC.swift */,
-				FEE85B232B7D47A800780317 /* GFButton.swift */,
-				FEE85B252B7D5D3C00780317 /* GFTextField.swift */,
-				FEE85B272B7D7C9900780317 /* FollowerListVC.swift */,
-				FEE85B292B7E51D400780317 /* GFTitleLabel.swift */,
-				FEE85B2B2B7E538200780317 /* GFBodyLabel.swift */,
-				FEE85B2D2B7E59E700780317 /* GFAlertVC.swift */,
-				FEE85B2F2B7E70E800780317 /* UIViewController+Ext.swift */,
 			);
-			path = GitHubFollowers;
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
