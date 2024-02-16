@@ -110,7 +110,6 @@
 				FEE85B402B7FC2A700780317 /* Cells */,
 				FEE85B2D2B7E59E700780317 /* GFAlertVC.swift */,
 				FEE85B232B7D47A800780317 /* GFButton.swift */,
-				FEE85B412B7FC2F700780317 /* FollowerCell.swift */,
 				FEE85B252B7D5D3C00780317 /* GFTextField.swift */,
 				FEE85B292B7E51D400780317 /* GFTitleLabel.swift */,
 				FEE85B2B2B7E538200780317 /* GFBodyLabel.swift */,
@@ -166,6 +165,7 @@
 		FEE85B402B7FC2A700780317 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				FEE85B412B7FC2F700780317 /* FollowerCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
