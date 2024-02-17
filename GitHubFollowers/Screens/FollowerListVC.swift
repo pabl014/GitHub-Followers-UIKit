@@ -63,10 +63,11 @@ class FollowerListVC: UIViewController {
     
     func getFollowers() {
         
-        NetworkManager.shared.getFollowers(for: username, page: 1) { result in
+        NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in // [weak self] -> capture list
+            
+            guard let self = self else { return }
             
             switch result {
-                
                 case .success(let followers):
                     self.followers = followers
                     self.updateData()
