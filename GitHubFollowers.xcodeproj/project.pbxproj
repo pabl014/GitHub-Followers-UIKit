@@ -27,6 +27,7 @@
 		FEE85B422B7FC2F700780317 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE85B412B7FC2F700780317 /* FollowerCell.swift */; };
 		FEE85B442B7FC3A700780317 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE85B432B7FC3A700780317 /* GFAvatarImageView.swift */; };
 		FEF3E3A22B8164DB006F2A65 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF3E3A12B8164DB006F2A65 /* UIHelper.swift */; };
+		FEF3E3AA2B83CC8F006F2A65 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF3E3A92B83CC8F006F2A65 /* GFEmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		FEE85B412B7FC2F700780317 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		FEE85B432B7FC3A700780317 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		FEF3E3A12B8164DB006F2A65 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		FEF3E3A92B83CC8F006F2A65 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 		FEF3E3A42B83CB92006F2A65 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FEF3E3A92B83CC8F006F2A65 /* GFEmptyStateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				FEE85B2C2B7E538200780317 /* GFBodyLabel.swift in Sources */,
 				FEE85B372B7E8EA000780317 /* Follower.swift in Sources */,
 				FEE85B2A2B7E51D400780317 /* GFTitleLabel.swift in Sources */,
+				FEF3E3AA2B83CC8F006F2A65 /* GFEmptyStateView.swift in Sources */,
 				FEE85B3C2B7E9AD500780317 /* NetworkManager.swift in Sources */,
 				FEE85B282B7D7C9900780317 /* FollowerListVC.swift in Sources */,
 				FEE85B0A2B7BC28900780317 /* AppDelegate.swift in Sources */,
