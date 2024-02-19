@@ -109,13 +109,13 @@
 		FEE85B322B7E81FA00780317 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				FEF3E3A82B83CC12006F2A65 /* ViewControllers */,
+				FEF3E3A72B83CC03006F2A65 /* ImageViews */,
+				FEF3E3A62B83CBEE006F2A65 /* TextFields */,
+				FEF3E3A52B83CBAB006F2A65 /* Labels */,
+				FEF3E3A42B83CB92006F2A65 /* Views */,
+				FEF3E3A32B83CB87006F2A65 /* Buttons */,
 				FEE85B402B7FC2A700780317 /* Cells */,
-				FEE85B2D2B7E59E700780317 /* GFAlertVC.swift */,
-				FEE85B232B7D47A800780317 /* GFButton.swift */,
-				FEE85B252B7D5D3C00780317 /* GFTextField.swift */,
-				FEE85B292B7E51D400780317 /* GFTitleLabel.swift */,
-				FEE85B2B2B7E538200780317 /* GFBodyLabel.swift */,
-				FEE85B432B7FC3A700780317 /* GFAvatarImageView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -171,6 +171,54 @@
 				FEE85B412B7FC2F700780317 /* FollowerCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		FEF3E3A32B83CB87006F2A65 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				FEE85B232B7D47A800780317 /* GFButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		FEF3E3A42B83CB92006F2A65 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FEF3E3A52B83CBAB006F2A65 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				FEE85B292B7E51D400780317 /* GFTitleLabel.swift */,
+				FEE85B2B2B7E538200780317 /* GFBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		FEF3E3A62B83CBEE006F2A65 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				FEE85B252B7D5D3C00780317 /* GFTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		FEF3E3A72B83CC03006F2A65 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				FEE85B432B7FC3A700780317 /* GFAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		FEF3E3A82B83CC12006F2A65 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FEE85B2D2B7E59E700780317 /* GFAlertVC.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

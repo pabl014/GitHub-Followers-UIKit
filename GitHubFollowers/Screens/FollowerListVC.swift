@@ -58,9 +58,13 @@ class FollowerListVC: UIViewController {
             
             switch result {
                 case .success(let followers):
-                    if followers.count < 100 { self.hasMoreFollowers = false }
-                self.followers.append(contentsOf: followers)
-                    self.updateData()
+                    if followers.count == 0 {
+                        #warning("present empty state")
+                    } else {
+                        if followers.count < 100 { self.hasMoreFollowers = false }
+                        self.followers.append(contentsOf: followers)
+                        self.updateData()
+                    }
 
                 case .failure(let error):
                     self.presentGFAlertOnMainThread(title: "Bad stuff happened", message: error.rawValue, buttonTitle: "Ok")
@@ -99,9 +103,9 @@ extension FollowerListVC: UICollectionViewDelegate {
         let contentHeight   = scrollView.contentSize.height // the entire scrollView
         let height          = scrollView.frame.size.height  // height of an iPhone screen
         
-        print("OffsetY = \(offsetY)")
-        print("contentHeight = \(contentHeight)")
-        print("height = \(height)")
+//        print("OffsetY = \(offsetY)")
+//        print("contentHeight = \(contentHeight)")
+//        print("height = \(height)")
         
         if offsetY > contentHeight - height {
             guard hasMoreFollowers else { return }
