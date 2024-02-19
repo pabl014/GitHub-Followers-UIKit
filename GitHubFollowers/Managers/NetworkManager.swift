@@ -5,15 +5,17 @@
 //  Created by Paweł Rudnik on 15/02/2024.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     
     static let shared = NetworkManager() // static: every Network manager will have this variable on it
     private init() { }
     
-    let baseURL = "https://api.github.com/users/"
-    let perPageFollowers = "?per_page=100"
+    private let baseURL          = "https://api.github.com/users/"
+    private let perPageFollowers = "?per_page=100"
+    
+    let cache = NSCache<NSString, UIImage>()
     
     func getFollowers(for username: String, page: Int, completed: @escaping (Result<[Follower], GFError>) -> Void)  {
         let endpoint = baseURL + "\(username)/followers\(perPageFollowers)&page=\(page)"

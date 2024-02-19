@@ -67,7 +67,7 @@ class FollowerListVC: UIViewController {
     func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { collectionView, indexPath, follower in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell // creating a cell
-            cell.set(follower: follower) // cell configuration: for every follower, sending info into the FollowerCell and func set(follower: Follower) is going to set the username text of the cell to the follower.login
+            cell.set(follower: follower) // cell configuration: for every follower, sending info into the FollowerCell and func set(follower: Follower) is going to set the username text of the cell to the follower.login and avatar to the follower.avatarUrl
             return cell
         })
     }
