@@ -15,6 +15,7 @@ class FollowerListVC: UIViewController {
     
     var username: String!
     var followers: [Follower] = []
+    var filteredFollowers: [Follower] = []
     var page = 1
     var hasMoreFollowers = true
     
@@ -25,6 +26,7 @@ class FollowerListVC: UIViewController {
         super.viewDidLoad()
         
         configureViewController()
+        configureSearchController()
         configureCollectionView()
         getFollowers(username: username, page: page)
         configureDataSource()
@@ -48,6 +50,16 @@ class FollowerListVC: UIViewController {
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
+    func configureSearchController() {
+        let searchController                                  = UISearchController()
+        searchController.searchResultsUpdater                 = self
+        searchController.searchBar.delegate                   = self
+        searchController.searchBar.placeholder                = "Search for a username"
+        //searchController.obscuresBackgroundDuringPresentation = false // can't see any difference in iOS17
+        navigationItem.searchController                       = searchController // in navigationItem search controller is built in
+        navigationItem.hidesSearchBarWhenScrolling            = false
+    }
+    
     func getFollowers(username: String, page: Int) {
         showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in // [weak self] -> capture list
@@ -67,7 +79,7 @@ class FollowerListVC: UIViewController {
                         return
                     }
                 
-                    self.updateData()
+                self.updateData(on: self.followers)
                     
                 case .failure(let error):
                     self.presentGFAlertOnMainThread(title: "Bad stuff happened", message: error.rawValue, buttonTitle: "Ok")
@@ -88,7 +100,7 @@ class FollowerListVC: UIViewController {
     // 1. It takes the snapshot of what current data is
     // 2. Takes the snapshot of the new data
     // 3. Apply changes with cool animation between old and new snapshots
-    func updateData() {
+    func updateData(on followers: [Follower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>() // create snapshot
         snapshot.appendSections([.main]) // add to snapshot
         snapshot.appendItems(followers) // add to snapshot
@@ -117,4 +129,30 @@ extension FollowerListVC: UICollectionViewDelegate {
         }
         
     }
+}
+
+// every time I change search reults in the search bar it is triggered
+extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
+    // filter the array and update collection view
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { // let filter be the text in the searchBar, check if it isn't empty
+            updateData(on: followers)
+            return
+        }
+        
+        filteredFollowers = followers.filter {
+            $0.login.lowercased()
+                .contains(filter.lowercased())
+        }
+        
+        updateData(on: filteredFollowers)
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateData(on: followers)
+    }
+    
+    
 }
