@@ -26,6 +26,7 @@
 		FEE85B3F2B7FAFB600780317 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE85B3E2B7FAFB600780317 /* ErrorMessage.swift */; };
 		FEE85B422B7FC2F700780317 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE85B412B7FC2F700780317 /* FollowerCell.swift */; };
 		FEE85B442B7FC3A700780317 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE85B432B7FC3A700780317 /* GFAvatarImageView.swift */; };
+		FEF1437A2B962E30009423BF /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF143792B962E30009423BF /* UserInfoVC.swift */; };
 		FEF3E3A22B8164DB006F2A65 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF3E3A12B8164DB006F2A65 /* UIHelper.swift */; };
 		FEF3E3AA2B83CC8F006F2A65 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF3E3A92B83CC8F006F2A65 /* GFEmptyStateView.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		FEE85B3E2B7FAFB600780317 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		FEE85B412B7FC2F700780317 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		FEE85B432B7FC3A700780317 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
+		FEF143792B962E30009423BF /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 		FEF3E3A12B8164DB006F2A65 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		FEF3E3A92B83CC8F006F2A65 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 				FEE85B1F2B7D362000780317 /* SearchVC.swift */,
 				FEE85B212B7D369E00780317 /* FavoritesListVC.swift */,
 				FEE85B272B7D7C9900780317 /* FollowerListVC.swift */,
+				FEF143792B962E30009423BF /* UserInfoVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				FEE85B282B7D7C9900780317 /* FollowerListVC.swift in Sources */,
 				FEE85B0A2B7BC28900780317 /* AppDelegate.swift in Sources */,
 				FEE85B0C2B7BC28900780317 /* SceneDelegate.swift in Sources */,
+				FEF1437A2B962E30009423BF /* UserInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

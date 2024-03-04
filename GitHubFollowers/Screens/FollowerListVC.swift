@@ -18,6 +18,7 @@ class FollowerListVC: UIViewController {
     var filteredFollowers: [Follower] = []
     var page = 1
     var hasMoreFollowers = true
+    var isSearching = false
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>! // it has to know about our section and our items in section
@@ -129,6 +130,16 @@ extension FollowerListVC: UICollectionViewDelegate {
         }
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let activeArray   = isSearching ? filteredFollowers : followers
+        let follower      = activeArray[indexPath.item]
+        //let follower = (isSearching ? filteredFollowers : followers)[indexPath.item] -> even faster way
+        let destVC        = UserInfoVC()
+        destVC.username   = follower.login
+        let navController = UINavigationController(rootViewController: destVC)
+        present(navController, animated: true)
+    }
 }
 
 // every time I change search reults in the search bar it is triggered
@@ -137,9 +148,13 @@ extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         
         guard let filter = searchController.searchBar.text, !filter.isEmpty else { // let filter be the text in the searchBar, check if it isn't empty
+            #warning("check line 146")
+            isSearching = false
             updateData(on: followers)
             return
         }
+        
+        isSearching = true
         
         filteredFollowers = followers.filter {
             $0.login.lowercased()
@@ -151,6 +166,7 @@ extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
         updateData(on: followers)
     }
     
