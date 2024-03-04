@@ -148,8 +148,7 @@ extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         
         guard let filter = searchController.searchBar.text, !filter.isEmpty else { // let filter be the text in the searchBar, check if it isn't empty
-            #warning("check line 146")
-            isSearching = false
+            isSearching = false // .
             updateData(on: followers)
             return
         }
