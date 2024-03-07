@@ -34,4 +34,10 @@ class GFButton: UIButton {
         titleLabel?.font        = UIFont.preferredFont(forTextStyle: .headline)
         translatesAutoresizingMaskIntoConstraints = false // required to use Auto Layout and do our constraints programatically
     }
+    
+    // function that allows to modify color and title of a button
+    func set(backgroundColor: UIColor, title: String) {
+        self.backgroundColor = backgroundColor
+        setTitle(title, for: .normal)
+    }
 }
