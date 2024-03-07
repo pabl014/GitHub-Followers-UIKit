@@ -16,7 +16,7 @@ class GFItemInfoVC: UIViewController {
     
     var user: User!
     
-    var delegate: UserInfoVCDelegate!
+    weak var delegate: UserInfoVCDelegate! // delegate variables need to be weak to prevent retain cycles
     
     //init with user so we can assign all user stuff to UI components
     init(user: User) {
