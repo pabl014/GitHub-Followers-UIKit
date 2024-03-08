@@ -49,7 +49,7 @@ enum PersistenceManager {
                     completed(save(favorites: retrievedFavorites))
                 
                 case .failure(let error):
-                    completed(error) // completion handler from line 26 (completed: @escaping (GFError?) -> Void)
+                    completed(error) // completion handler from line 26 (completed: @escaping (GFError?) -> Void), error from line 70
             }
         }
     }
