@@ -8,7 +8,7 @@
 import UIKit
 import SafariServices
 
-fileprivate var containerView: UIView! // fileprivate: anything in this file can use this variable
+// fileprivate var containerView: UIView! // fileprivate: anything in this file can use this variable
 
 extension UIViewController {
     
@@ -30,45 +30,4 @@ extension UIViewController {
         present(safariVC, animated: true)
     }
     
-    
-    func showLoadingView() {
-        
-        containerView = UIView(frame: view.bounds)
-        view.addSubview(containerView)
-        
-        containerView.backgroundColor   = .systemBackground
-        containerView.alpha             = 0
-        
-        UIView.animate(withDuration: 0.25) {
-            containerView.alpha = 0.8
-        }
-        
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-        containerView.addSubview(activityIndicator)
-        
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
-        //constraints:
-        NSLayoutConstraint.activate([
-            // center activityIndicator
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        
-        activityIndicator.startAnimating()
-    }
-    
-    func dismissLoadingView() {
-        
-        DispatchQueue.main.async {
-            containerView.removeFromSuperview()
-            containerView = nil
-        }
-    }
-    
-    func showEmptyStateView(with message: String, in view: UIView) {
-        let emptyStateView = GFEmptyStateView(message: message)
-        emptyStateView.frame = view.bounds
-        view.addSubview(emptyStateView)
-    }
 }
