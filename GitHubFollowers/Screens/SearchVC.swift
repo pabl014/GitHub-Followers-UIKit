@@ -30,11 +30,12 @@ class SearchVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func createDismissKeyboardTapGesture() {
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
     
@@ -44,6 +45,8 @@ class SearchVC: UIViewController {
             presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know what you are looking for 🙂.", buttonTitle: "Ok")
             return
         }
+        
+        usernameTextField.resignFirstResponder() // dismiss the keyboard
         
         let followerListVC      = FollowerListVC()
         followerListVC.username = usernameTextField.text
@@ -76,7 +79,6 @@ class SearchVC: UIViewController {
     func configureTextField() {
         view.addSubview(usernameTextField)
         usernameTextField.delegate = self // self is SearchVC
-        usernameTextField.text = "SAllen0400"
         
         NSLayoutConstraint.activate([
             usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
