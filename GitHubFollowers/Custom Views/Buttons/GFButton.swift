@@ -12,7 +12,6 @@ class GFButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
-        
     }
     
     // this is called when we initialize this GF button via storyboard (we are not doing it there, but it is required to implement)
@@ -21,11 +20,10 @@ class GFButton: UIButton {
     }
     
     // our own init
-    init(backgroundColor: UIColor, title: String) {
-        super.init(frame: .zero) // we will set the frame in auto layout constraints so we can initialize it with .zero frame
+    convenience init(backgroundColor: UIColor, title: String) {
+        self.init(frame: .zero) // we will set the frame in auto layout constraints so we can initialize it with .zero frame
         self.backgroundColor = backgroundColor
         self.setTitle(title, for: .normal)
-        configure()
     }
     
     private func configure() {
