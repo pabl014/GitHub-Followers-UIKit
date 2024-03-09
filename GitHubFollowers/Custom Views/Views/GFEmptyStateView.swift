@@ -33,7 +33,7 @@ class GFEmptyStateView: UIView {
         messageLabel.numberOfLines  = 3
         messageLabel.textColor      = .secondaryLabel
         
-        logoImageView.image         = UIImage(named: "empty-state-logo")
+        logoImageView.image         = Images.emptyStateLogo
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         // !!! no messageLabel.translatesAutoresizingMaskIntoConstraints = false, because it is an instance of GFTitleLabel which has it set to false in GFTitleLabel.swift
         

@@ -8,11 +8,11 @@
 import UIKit
 
 enum SFSymbols {
-    static let location     = "mappin.and.ellipse"
-    static let repos        = "folder"
-    static let gists        = "text.allignleft"
-    static let followers    = "person.2"
-    static let following    = "heart"
+    static let location     = UIImage(systemName: "mappin.and.ellipse")
+    static let repos        = UIImage(systemName: "folder")
+    static let gists        = UIImage(systemName: "text.allignleft")
+    static let followers    = UIImage(systemName: "person.2")
+    static let following    = UIImage(systemName: "heart")
 }
 
 // https://www.appmysite.com/blog/the-complete-guide-to-iphone-screen-resolutions-and-sizes/
@@ -29,6 +29,7 @@ enum ScreenSize {
 enum Images {
     static let ghLogo           = UIImage(named: "gh-logo")
     static let placeholderImage = UIImage(named: "avatar-placeholder")
+    static let emptyStateLogo   = UIImage(named: "empty-state-logo")
 }
 
 enum DeviceTypes {
