@@ -7,7 +7,10 @@
 
 import UIKit
 
-struct UIHelper {
+// If this was a struct instead of an enum, we can do let help = UIHelper(), so we initialized an empty UIHelper.
+// We don't want to do it, so with enum we can't init an empty one, we will use UIHelper.create... .
+
+enum UIHelper {
     
     static func createThreeColumnFlowLayout(in view: UIView) -> UICollectionViewFlowLayout {
         
