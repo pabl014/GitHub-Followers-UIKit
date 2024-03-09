@@ -84,6 +84,7 @@ class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase // Follower.swift, line: 12
+                decoder.dateDecodingStrategy = .iso8601
                 
                 let user = try decoder.decode(User.self, from: data)
                 completed(.success(user))
