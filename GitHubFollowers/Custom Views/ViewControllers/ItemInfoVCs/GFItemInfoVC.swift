@@ -58,8 +58,8 @@ class GFItemInfoVC: UIViewController {
     }
     
     private func layoutUI() {
-        view.addSubview(stackView)
-        view.addSubview(actionButton)
+        
+        view.addSubviews(stackView, actionButton)
         // no itemInfoViews, because they are part of a stackView
         
         stackView.translatesAutoresizingMaskIntoConstraints = false

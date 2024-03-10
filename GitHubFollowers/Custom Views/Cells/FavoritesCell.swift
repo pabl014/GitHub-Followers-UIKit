@@ -37,8 +37,7 @@ class FavoritesCell: UITableViewCell {
     }
     
     private func configure() {
-        addSubview(avatarImageView)
-        addSubview(usernameLabel)
+        addSubviews(avatarImageView, usernameLabel)
         
         accessoryType           = .disclosureIndicator // " > " arrow on the right in cell, it informs that it is tappable and there is more to see
         let padding: CGFloat    = 12
