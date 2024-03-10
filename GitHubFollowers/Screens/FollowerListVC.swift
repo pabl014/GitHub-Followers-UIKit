@@ -72,7 +72,7 @@ class FollowerListVC: GFDataLoadingVC {
     func configureSearchController() {
         let searchController                                  = UISearchController()
         searchController.searchResultsUpdater                 = self
-        searchController.searchBar.delegate                   = self
+        //searchController.searchBar.delegate                   = self
         searchController.searchBar.placeholder                = "Search for a username"
         //searchController.obscuresBackgroundDuringPresentation = false // can't see any difference in iOS17
         navigationItem.searchController                       = searchController // in navigationItem search controller is built in
@@ -195,11 +195,12 @@ extension FollowerListVC: UICollectionViewDelegate {
 }
 
 // every time I change search reults in the search bar it is triggered
-extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
+extension FollowerListVC: UISearchResultsUpdating /*UISearchBarDelegate*/ {
     // filter the array and update collection view
     func updateSearchResults(for searchController: UISearchController) {
         
         guard let filter = searchController.searchBar.text, !filter.isEmpty else { // let filter be the text in the searchBar, check if it isn't empty
+            filteredFollowers.removeAll()
             isSearching = false // .
             updateData(on: followers)
             return
@@ -216,10 +217,10 @@ extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
         
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = false
-        updateData(on: followers)
-    }
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        isSearching = false
+//        updateData(on: followers)
+//    }
     
     
 }
