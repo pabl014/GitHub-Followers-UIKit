@@ -54,12 +54,8 @@ class UserInfoVC: GFDataLoadingVC {
     
     func configureUIElements(with user: User) {
         
-        let repoItemVC          = GFRepoItemVC(user: user)
-        repoItemVC.delegate     = self // self is UserInfoVC
-        
-        let followerItemVC      = GFFollowerItemVC(user: user)
-        followerItemVC.delegate = self
-        
+        let repoItemVC          = GFRepoItemVC(user: user, delegate: self)
+        let followerItemVC      = GFFollowerItemVC(user: user, delegate: self)
         
         self.add(childVC: repoItemVC, to: self.itemViewOne)
         self.add(childVC: followerItemVC, to: self.itemViewTwo)
@@ -112,7 +108,7 @@ class UserInfoVC: GFDataLoadingVC {
     }
 }
 
-extension UserInfoVC: ItemInfoVCDelegate {
+extension UserInfoVC: GFRepoItemVCDelegate {
     
     func didTapGitHubProfile(for user: User) {
         // show safariVC
@@ -123,6 +119,9 @@ extension UserInfoVC: ItemInfoVCDelegate {
         
         presentSafariVC(with: url)
     }
+}
+
+extension UserInfoVC: GFFollowerItemVCDelegate{
     
     func didTapGetFollowers(for user: User) {
         // dismiss VC
@@ -137,6 +136,6 @@ extension UserInfoVC: ItemInfoVCDelegate {
         
         dismissVC()
     }
-    
-    
 }
+
+
