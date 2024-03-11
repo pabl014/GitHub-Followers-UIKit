@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FED6ECFF2B9F88180023539A /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED6ECFE2B9F88180023539A /* UITableView+Ext.swift */; };
 		FEE6E9B12B99D83A00B28646 /* GFItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6E9B02B99D83A00B28646 /* GFItemInfoVC.swift */; };
 		FEE6E9B32B99DC7600B28646 /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6E9B22B99DC7600B28646 /* GFRepoItemVC.swift */; };
 		FEE6E9B52B99E26300B28646 /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6E9B42B99E26300B28646 /* GFFollowerItemVC.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FED6ECFE2B9F88180023539A /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		FEE6E9B02B99D83A00B28646 /* GFItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoVC.swift; sourceTree = "<group>"; };
 		FEE6E9B22B99DC7600B28646 /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
 		FEE6E9B42B99E26300B28646 /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				FEE6E9B72B99E79100B28646 /* Date+Ext.swift */,
 				FEE6E9B92B99EAAB00B28646 /* String+Ext.swift */,
 				FEE6E9C72B9E6D4000B28646 /* UIView+Ext.swift */,
+				FED6ECFE2B9F88180023539A /* UITableView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				FEE85B3F2B7FAFB600780317 /* ErrorMessage.swift in Sources */,
 				FEF1437C2B968CD1009423BF /* GFUserInfoHeaderVC.swift in Sources */,
 				FEE85B2C2B7E538200780317 /* GFBodyLabel.swift in Sources */,
+				FED6ECFF2B9F88180023539A /* UITableView+Ext.swift in Sources */,
 				FEE85B372B7E8EA000780317 /* Follower.swift in Sources */,
 				FEE6E9C42B9C92EA00B28646 /* GFAlertContainerView.swift in Sources */,
 				FEE85B2A2B7E51D400780317 /* GFTitleLabel.swift in Sources */,

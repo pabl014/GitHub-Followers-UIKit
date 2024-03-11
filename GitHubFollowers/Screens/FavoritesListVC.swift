@@ -42,6 +42,8 @@ class FavoritesListVC: GFDataLoadingVC {
         tableView.delegate      = self
         tableView.dataSource    = self
         
+        tableView.removeExcessCells() // no more additional empty cells, tableView.tableFooterView = UIView() works the same 
+        
         tableView.register(FavoritesCell.self, forCellReuseIdentifier: FavoritesCell.reuseID)
     }
     
