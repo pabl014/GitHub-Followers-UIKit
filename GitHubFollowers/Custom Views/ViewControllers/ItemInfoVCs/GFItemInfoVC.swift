@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol ItemInfoVCDelegate: AnyObject {
+    func didTapGitHubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
+}
+
 class GFItemInfoVC: UIViewController {
     
     let stackView       = UIStackView()
@@ -16,7 +21,7 @@ class GFItemInfoVC: UIViewController {
     
     var user: User!
     
-    weak var delegate: UserInfoVCDelegate! // delegate variables need to be weak to prevent retain cycles
+    weak var delegate: ItemInfoVCDelegate! // delegate variables need to be weak to prevent retain cycles
     
     //init with user so we can assign all user stuff to UI components
     init(user: User) {
