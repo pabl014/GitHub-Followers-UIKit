@@ -28,25 +28,24 @@ enum PersistenceManager {
             
             switch result {
                 
-                case .success(let favorites):
-                    var retrievedFavorites = favorites
+                case .success(var favorites):
                     
                     switch actionType {
                         
                         case .add:
-                            guard !retrievedFavorites.contains(favorite) else {
+                            guard !favorites.contains(favorite) else {
                                 // if we already have that guy taht we pass in in line 26 in favorites
                                 completed(.alreadyInFavorites)
                                 return
                             }
                             
-                            retrievedFavorites.append(favorite)
+                            favorites.append(favorite)
                         
                         case .remove:
-                            retrievedFavorites.removeAll { $0.login == favorite.login } // iterating through the array, anywhere the login equals the favorite login, we're going to remove all instances of it
+                            favorites.removeAll { $0.login == favorite.login } // iterating through the array, anywhere the login equals the favorite login, we're going to remove all instances of it
                     }
                     
-                    completed(save(favorites: retrievedFavorites))
+                    completed(save(favorites: favorites))
                 
                 case .failure(let error):
                     completed(error) // completion handler from line 26 (completed: @escaping (GFError?) -> Void), error from line 70
