@@ -15,7 +15,6 @@ class GFDataLoadingVC: UIViewController {
         super.viewDidLoad()
     }
     
-
     func showLoadingView() {
         
         containerView = UIView(frame: view.bounds)
@@ -44,7 +43,6 @@ class GFDataLoadingVC: UIViewController {
     }
     
     func dismissLoadingView() {
-        
         DispatchQueue.main.async {
             self.containerView.removeFromSuperview()
             self.containerView = nil

@@ -53,18 +53,22 @@ class FavoritesListVC: GFDataLoadingVC {
             
             switch result {
                 case .success(let favorites):
-                    if favorites.isEmpty {
-                        self.showEmptyStateView(with: "No favorites \n Add one on the follower screen", in: self.view)
-                    } else {
-                        self.favorites = favorites
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData() // reloading data in tableView always on main thread !!!
-                            self.view.bringSubviewToFront(self.tableView) // just in case, to make sure tableView is showing on top, not an empty state
-                        }
-                    }
-                    
+                    updateUI(with: favorites)
+                
                 case .failure(let error):
                     self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+            }
+        }
+    }
+    
+    func updateUI(with favorites: [Follower]) {
+        if favorites.isEmpty {
+            self.showEmptyStateView(with: "No favorites \n Add one on the follower screen", in: self.view)
+        } else {
+            self.favorites = favorites
+            DispatchQueue.main.async {
+                self.tableView.reloadData() // reloading data in tableView always on main thread !!!
+                self.view.bringSubviewToFront(self.tableView) // just in case, to make sure tableView is showing on top, not an empty state
             }
         }
     }

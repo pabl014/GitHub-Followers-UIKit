@@ -13,8 +13,6 @@ class SearchVC: UIViewController {
     let usernameTextField  = GFTextField()
     let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
     
-    var logoImageViewTopConstraint: NSLayoutConstraint!
-    
     var isUsernameEntered: Bool {
         return !usernameTextField.text!.isEmpty
     }
@@ -60,12 +58,10 @@ class SearchVC: UIViewController {
         
         let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80 // .isiPhoneSE & .isiPhone8Zoomed -> same thing
         
-        logoImageViewTopConstraint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)
-        logoImageViewTopConstraint.isActive = true
         // constraints:
         NSLayoutConstraint.activate([
             // y coordinate:
-            // logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant), this line replaced in lines 61 & 62
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant),
             // x coordinate:
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             // height:
