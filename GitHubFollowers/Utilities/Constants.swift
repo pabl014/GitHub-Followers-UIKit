@@ -27,9 +27,9 @@ enum ScreenSize {
 }
 
 enum Images {
-    static let ghLogo           = UIImage(named: "gh-logo")
-    static let placeholderImage = UIImage(named: "avatar-placeholder")
-    static let emptyStateLogo   = UIImage(named: "empty-state-logo")
+    static let ghLogo           = UIImage(resource: .ghLogo)
+    static let placeholderImage = UIImage(resource: .avatarPlaceholder)
+    static let emptyStateLogo   = UIImage(resource: .emptyStateLogo)
 }
 
 enum DeviceTypes {
