@@ -281,7 +281,7 @@ extension FollowerListVC: UISearchResultsUpdating /*UISearchBarDelegate*/ {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else { // let filter be the text in the searchBar, check if it isn't empty
             filteredFollowers.removeAll()
             updateData(on: followers)
-            isSearching = false 
+            isSearching = false
             return
         }
         
@@ -318,6 +318,7 @@ extension FollowerListVC: UserInfoVCDelegate {
         followers.removeAll()
         filteredFollowers.removeAll()
         // collectionView.setContentOffset(.zero, animated: true) // scroll the collection view up to the top
+        navigationItem.searchController?.searchBar.text = "" // clear the searchBar to avoid the bugs
         collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         
         getFollowers(username: username, page: page)
