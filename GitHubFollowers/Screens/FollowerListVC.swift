@@ -80,22 +80,54 @@ class FollowerListVC: GFDataLoadingVC {
         showLoadingView()
         isLoadingMoreFollowers = true
         
-        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in // [weak self] -> capture list
-
-            guard let self = self else { return }
-            
-            self.dismissLoadingView()
-            
-            switch result {
-                case .success(let followers):
-                    updateUI(with: followers)
+        
+        Task { // Task - concurrency context, there you can do async code
+            do {
+                // success case
+                let followers = try await NetworkManager.shared.getFollowers(for: username, page: page)
+                updateUI(with: followers)
+                dismissLoadingView()
+            } catch {
+                // handle errors
+                if let gfError = error as? GFError {
+                    presentGFAlert(title: "Bad stuff happened", message: gfError.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultError()
+                }
                 
-                case .failure(let error):
-                    self.presentGFAlertOnMainThread(title: "Bad stuff happened", message: error.rawValue, buttonTitle: "Ok")
+                dismissLoadingView()
             }
-            
-            self.isLoadingMoreFollowers = false
         }
+        
+//        // if we don't care about the specific error
+//        Task {
+//            guard let followers = try? await NetworkManager.shared.getFollowers(for: username, page: page) else {
+//                presentDefaultError()
+//                dismissLoadingView()
+//            }
+//            
+//            updateUI(with: followers)
+//            dismissLoadingView()
+//        }
+        
+//        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in // [weak self] -> capture list
+//
+//            guard let self = self else { return }
+//            
+//            self.dismissLoadingView()
+//            
+//            switch result {
+//                case .success(let followers):
+//                    updateUI(with: followers)
+//                
+//                case .failure(let error):
+//                    self.presentGFAlertOnMainThread(title: "Bad stuff happened", message: error.rawValue, buttonTitle: "Ok")
+//            }
+//            
+//            self.isLoadingMoreFollowers = false
+//        }
+        
+        
     }
     
     func updateUI(with followers: [Follower]) {
