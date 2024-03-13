@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE30D4352BA24D060054B804 /* FollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30D4342BA24D060054B804 /* FollowerView.swift */; };
 		FED6ECFF2B9F88180023539A /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED6ECFE2B9F88180023539A /* UITableView+Ext.swift */; };
 		FEE6E9B12B99D83A00B28646 /* GFItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6E9B02B99D83A00B28646 /* GFItemInfoVC.swift */; };
 		FEE6E9B32B99DC7600B28646 /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE6E9B22B99DC7600B28646 /* GFRepoItemVC.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE30D4342BA24D060054B804 /* FollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerView.swift; sourceTree = "<group>"; };
 		FED6ECFE2B9F88180023539A /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		FEE6E9B02B99D83A00B28646 /* GFItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoVC.swift; sourceTree = "<group>"; };
 		FEE6E9B22B99DC7600B28646 /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
@@ -101,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE30D4332BA24CF00054B804 /* FollowerCell */ = {
+			isa = PBXGroup;
+			children = (
+				FEE85B412B7FC2F700780317 /* FollowerCell.swift */,
+				FE30D4342BA24D060054B804 /* FollowerView.swift */,
+			);
+			path = FollowerCell;
+			sourceTree = "<group>";
+		};
 		FEE6E9B62B99E2F000B28646 /* ItemInfoVCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,7 +241,7 @@
 		FEE85B402B7FC2A700780317 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				FEE85B412B7FC2F700780317 /* FollowerCell.swift */,
+				FE30D4332BA24CF00054B804 /* FollowerCell */,
 				FEE6E9BE2B9B44DC00B28646 /* FavoritesCell.swift */,
 			);
 			path = Cells;
@@ -361,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE30D4352BA24D060054B804 /* FollowerView.swift in Sources */,
 				FEE85B392B7E927F00780317 /* User.swift in Sources */,
 				FEE85B262B7D5D3C00780317 /* GFTextField.swift in Sources */,
 				FEE6E9BF2B9B44DC00B28646 /* FavoritesCell.swift in Sources */,
