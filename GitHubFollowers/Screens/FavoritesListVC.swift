@@ -27,6 +27,20 @@ class FavoritesListVC: GFDataLoadingVC {
         getFavorites()
     }
     
+    // telling the VC to update contentUnavailableConfiguration
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        if favorites.isEmpty {
+            var config              = UIContentUnavailableConfiguration.empty()
+            config.image            = .init(systemName: "star")
+            config.text             = "No favorites"
+            config.secondaryText    = "Add a favorite on the follower list screen"
+            contentUnavailableConfiguration = config
+        } else {
+            contentUnavailableConfiguration = nil
+        }
+    }
+    
+    
     func configureViewController() {
         view.backgroundColor    = .systemBackground
         title                   = "Favorites"
@@ -64,14 +78,21 @@ class FavoritesListVC: GFDataLoadingVC {
     }
     
     func updateUI(with favorites: [Follower]) {
-        if favorites.isEmpty {
-            self.showEmptyStateView(with: "No favorites \n Add one on the follower screen", in: self.view)
-        } else {
-            self.favorites = favorites
-            DispatchQueue.main.async {
-                self.tableView.reloadData() // reloading data in tableView always on main thread !!!
-                self.view.bringSubviewToFront(self.tableView) // just in case, to make sure tableView is showing on top, not an empty state
-            }
+//        if favorites.isEmpty {
+//            self.showEmptyStateView(with: "No favorites \n Add one on the follower screen", in: self.view)
+//        } else {
+//            self.favorites = favorites
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData() // reloading data in tableView always on main thread !!!
+//                self.view.bringSubviewToFront(self.tableView) // just in case, to make sure tableView is showing on top, not an empty state
+//            }
+//        }
+        
+        self.favorites = favorites
+        setNeedsUpdateContentUnavailableConfiguration()
+        DispatchQueue.main.async {
+            self.tableView.reloadData() // reloading data in tableView always on main thread !!!
+            self.view.bringSubviewToFront(self.tableView) // just in case, to make sure tableView is showing on top, not an empty state
         }
     }
 }
@@ -110,9 +131,10 @@ extension FavoritesListVC: UITableViewDataSource, UITableViewDelegate {
             guard let error else {
                 favorites.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .left) // when you swipe to the left, a delete option will appear
-                if self.favorites.isEmpty {
-                    self.showEmptyStateView(with: "No favorites \n Add one on the follower screen", in: self.view)
-                }
+//                if self.favorites.isEmpty {
+//                    self.showEmptyStateView(with: "No favorites \n Add one on the follower screen", in: self.view)
+//                }
+                setNeedsUpdateContentUnavailableConfiguration()
                 return
             }
             

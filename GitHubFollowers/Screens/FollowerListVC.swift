@@ -49,6 +49,20 @@ class FollowerListVC: GFDataLoadingVC {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        if followers.isEmpty && !isLoadingMoreFollowers {
+            var config              = UIContentUnavailableConfiguration.empty()
+            config.image            = .init(systemName: "person.slash")
+            config.text             = "No Followers"
+            config.secondaryText    = "This user has no followers"
+            contentUnavailableConfiguration = config
+        } else if isSearching && filteredFollowers.isEmpty {
+            contentUnavailableConfiguration = UIContentUnavailableConfiguration.search()
+        } else {
+            contentUnavailableConfiguration = nil
+        }
+    }
+    
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -84,7 +98,8 @@ class FollowerListVC: GFDataLoadingVC {
         Task { // Task - concurrency context, there you can do async code
             do {
                 // success case
-                let followers = try await NetworkManager.shared.getFollowers(for: username, page: page)
+                 let followers = try await NetworkManager.shared.getFollowers(for: username, page: page)
+                // let followers: [Follower] = [] // code to check no followers view
                 updateUI(with: followers)
                 dismissLoadingView()
                 isLoadingMoreFollowers = false
@@ -140,13 +155,14 @@ class FollowerListVC: GFDataLoadingVC {
         
         self.followers.append(contentsOf: followers)
         
-        if self.followers.isEmpty {
-            let message = "This user doesn't have any followers."
-            DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
-            return
-        }
+//        if self.followers.isEmpty {
+//            let message = "This user doesn't have any followers."
+//            DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
+//            return
+//        }
         
         self.updateData(on: self.followers)
+        setNeedsUpdateContentUnavailableConfiguration()
     }
     
     func configureDataSource() {
@@ -264,8 +280,8 @@ extension FollowerListVC: UISearchResultsUpdating /*UISearchBarDelegate*/ {
         
         guard let filter = searchController.searchBar.text, !filter.isEmpty else { // let filter be the text in the searchBar, check if it isn't empty
             filteredFollowers.removeAll()
-            isSearching = false // .
             updateData(on: followers)
+            isSearching = false 
             return
         }
         
@@ -277,6 +293,7 @@ extension FollowerListVC: UISearchResultsUpdating /*UISearchBarDelegate*/ {
         }
         
         updateData(on: filteredFollowers)
+        setNeedsUpdateContentUnavailableConfiguration()
         
     }
     
